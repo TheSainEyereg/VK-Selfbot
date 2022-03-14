@@ -1,5 +1,7 @@
 const fs = require("fs");
 
+process.on("unhandledRejection", e => console.error(e));
+
 const {VK} = require("vk-io");
 const {token, prefix} = require("./config.json");
 
@@ -22,7 +24,7 @@ const vk = new VK({token});
 	vk.updates.on("message_new", async (ctx) => {
 		const message = getMessageObject(vk, ctx, {client});
 
-		if (!message.isOutbox || !message.text.startsWith(prefix)) {
+		if (!message.isOutbox || !message.text?.startsWith(prefix)) {
 			return;
 		}
 
