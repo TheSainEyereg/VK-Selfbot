@@ -16,6 +16,7 @@ function getMessageObject(vk, ctx, additional) {
 			peer_id: ctx.peerId,
 			message_id: ctx.id,
 			message: content,
+			keep_forward_messages: 1,
 			attachment
 		});
 	};
