@@ -2,6 +2,6 @@ module.exports = {
 	name: "unflip",
 	description: "Unflips a table",
 	execute(message, args) {
-		message.edit("┬─┬ ノ( ゜-゜ノ)");
+		message.edit(args.map(e => e+" ").join("") + "┬─┬ ノ( ゜-゜ノ)");
 	}
 };
