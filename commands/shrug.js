@@ -2,6 +2,7 @@ module.exports = {
 	name: "shrug",
 	description: "Shrugs",
 	execute(message, args) {
-		message.edit(args.map(e => e+" ").join("") + "¯\\_(ツ)_/¯");
+		args.push("¯\\_(ツ)_/¯")
+		message.edit(args.join(" "));
 	},
 };

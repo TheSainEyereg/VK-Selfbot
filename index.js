@@ -24,9 +24,7 @@ const vk = new VK({token});
 	vk.updates.on("message_new", async (ctx) => {
 		const message = getMessageObject(vk, ctx, {client});
 
-		if (!message.isOutbox || !message.text?.startsWith(prefix)) {
-			return;
-		}
+		if (!message.isOutbox || !message.text?.startsWith(prefix)) return;
 
 		const args = message.text.slice(prefix.length).split(/ +/);
 		const commandString = args.shift().toLowerCase().replace(/\ /g,"");
